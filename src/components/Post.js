@@ -24,7 +24,7 @@ export default function Post() {
     }, []);
 
     return (
-        <main className="bg-blue-100 min-h-screen p-12">
+        <main className="bg-blue-50 min-h-screen p-12">
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">Blog Posts Page</h1>
                 <h2 className="text-lg text-gray-600 flex justify-center mb-12">Welcome to my page of blog posts</h2>
@@ -33,15 +33,21 @@ export default function Post() {
                       postData.map((post, index) => (
                     <article>
                         <Link to={"/post/" + post.slug.current} key={post.slug.current}>
-                        <span className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-green-400"
+                        <span className="block h-64 relative rounded shadow leading-snug bg-green-100 "
                         key={index}>
-                            <img 
+                            <a
+                            href={post.link}
+                            alt={post.title}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >{post.title}</a>
+                            {/* <img 
                             src={post.mainImage.asset.url} 
                             alt={post.mainImage.alt}
                             className="w-full h-full rounded-r object-cover absolute"                            
-                            />
+                            /> */}
                             <span className="block relative h-full flex justify-end items-end pr-4 pb-4">
-                                <h3 className="text-gray-800 text-lg font-blog px-3 py-4 bg-blue-700 text-blue-100 bg-opacity-75 rounded">
+                                <h3 className="text-gray-800 text-lg font-blog px-3 py-4 bg-blue-700 text-blue-200 bg-opacity-75 rounded">
                                     {post.title}
                                 </h3>
                             </span>

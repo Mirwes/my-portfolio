@@ -5,7 +5,7 @@ export default function Project() {
     const [projectData, setProjectData] = useState(null);
     
     useEffect(() => {
-        sanityClient  .fetch(`*[_type == "project"] {
+    sanityClient.fetch(`*[_type == "project"] {
             title,
             date,
             place,
@@ -16,10 +16,7 @@ export default function Project() {
         }`
         )
         .then((data) => setProjectData(data))
-        // .catch(console.error);
-        .catch((error) => {
-            console.log(error);
-        });
+        .catch(console.error);
     }, []);
     return (
         <main className="container mx-auto">
@@ -51,7 +48,7 @@ export default function Project() {
                                 <strong className="font-bold">Type</strong>:{ ""}
                                 {project.projectType}
                             </span>
-                            <p className="my-6 text-lg text-gray-700 leading-relaxed">
+                            <p className="my-6 text-lg text-red-700 leading-relaxed">
                                 {project.description}
                             </p>
                             <a href={project.link} rel="noopener noreferrer" target="_blank" 
